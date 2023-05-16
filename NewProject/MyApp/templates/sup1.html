@@ -1,0 +1,22 @@
+{% extends 'header.html' %}
+{% block title %}update{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card col-md-6 mx-auto shadow-lg">
+		<div class="card-body">
+			<h3 class="bg-warning text-light border rounded">Student Record:{{st.id}}</h3>
+			<form method="POST">
+				{% csrf_token %}
+				<div>
+					<input type="text" name="sname" value={{st.sname}} class="form-control col-sm mx-2">
+					<input type="number" name="age" value={{st.age}} class="form-control col-sm mx-2">
+					<input type="text" name="suname" value={{st.suname}} class="form-control col-sm mx-2">
+					<input type="text" name="semail" value={{st.semail}} class="form-control col-sm mx-2">
+				</div>
+				<a href="{% url 'op' %}" class="btn btn-outline-primary">Back to Main</a>
+				<input type="submit" name="submit" value="Update" class="btn btn-outline-success">
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

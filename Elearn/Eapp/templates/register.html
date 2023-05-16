@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Registration-page{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card col-md-6 mx-auto shadow-lg">
+		<div class="card-body">
+			<h3 class="bg-primary text-light text-center p-2 border rounded">
+				Registration
+			</h3>
+			<!--{{h.as_table}}-->
+			<form method="POST">
+				{% csrf_token %}
+				{% for i in h %}
+				<div>
+					{{i}}
+				</div>
+				{% endfor %}
+				<div class="row">
+					<input type="submit" class="form-control mx-2 btn btn-outline-success" name="submit" value="submit">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

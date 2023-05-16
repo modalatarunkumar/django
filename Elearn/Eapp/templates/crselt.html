@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Course category list{% endblock %}
+{% block content %}
+<div class="container-fluid mt-4">
+	<div class="row mx-2">
+		<div class="card col-md-4 shadow-lg mx-2 h-100">
+			<h3 class="bg-info text-light text-center border rounded p-2">Add Course</h3>
+			<form method="POST">
+				{% csrf_token %}
+				{% for j in g %}
+				{{j}}
+				{% endfor %}
+			<div class="row">
+				<input type="reset" value="Reset" class="form-control mx-2 btn btn-outline-danger col-sm">
+				<input type="submit" value="Add Course" class="form-control mx-2 btn btn-outline-success col-sm">
+			</div>
+			</form>
+		</div>
+		<div class="card col-md-4 shadow-lg mx-2 h-100">
+			<h3 class="bg-info text-light text-center border rounded p-2">Display CourseList</h3>
+			<table class="table table-borderless table-hover">
+				<tr class="bg-dark text-light">
+					<th>sno</th>
+					<th>Course Title</th>
+					<th>Actions</th>
+				</tr>
+				{% for i in h %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{i.ctitle}}</td>
+					<td><a href="#">Update</a><a href="#">Delete</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+{% endblock %}

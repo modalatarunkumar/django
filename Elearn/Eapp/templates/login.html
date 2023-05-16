@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Login Page{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card col-md-6 mx-auto shadow-lg">
+		<div class="card-body">
+			<h3 class="bg-info text-light text-center p-2 border rounded">Login</h3>
+			<form method="POST">
+				{% csrf_token %}
+				<input type="text" name="username" placeholder="Enter Username" class="form-control mx-2">
+				<input type="password" name="password" placeholder="Enter Password" class="form-control my-2">
+				<div class="row mx-1">
+					<input type="reset" value="Reset" class="btn btn-outline-danger col-sm mx-1">
+					<input type="submit" value="Login" class="btn btn-outline-success col-sm mx-1">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

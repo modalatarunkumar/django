@@ -1,0 +1,59 @@
+{%extends 'header.html' %}
+{% block content %}
+<div class="container-fluid mt-4">
+	<div class="row mx-3">
+		<div class="col-md-4 card mx-2 shadow-lg border rounded">
+		<h3 class="bg-info text-light text-center p-2 border rounded my-2">Add User</h3>
+		<div class="card-body">
+			<form method="POST">
+				{%csrf_token%}
+				<div class="row">
+					<input type="text" name="us" placeholder="Enter Username" class="form-control col-sm">
+					<input type="password" name="pd"placeholder="Enter password" class="form-control col-sm">
+				</div>
+				<br>
+				<div class="row">
+					<input type="text" name="sn" placeholder="Enter Student name" class="form-control col-sm">
+					<input type="number" name="sa"placeholder="Enter age" class="form-control col-sm">
+				</div>
+				<br>
+				<div class="row">
+					<input type="email" name="se" placeholder="Enter Student email" class="form-control col-sm">
+				</div>
+				<br>
+				<div class="row">
+					<input type="reset" value="Clear" class="btn btn-primary text-center text-light form-control col-sm">
+					<input type="submit" name="Submit" class="btn btn-success text-center text-light form-control col-sm">
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="col-md card mx-2 shadow-lg border rounded">
+		<h3 class="bg-success text-light text-center p-2 border rounded my-2">Display Details</h3>
+		<div class="card-body">
+			<table class="table table-borderless table-hover">
+				<tr>
+					<td>Sno</td>
+					<td>Student Name</td>
+					<td>Age</td>
+					<td>Username</td>
+					<td>Email-Id</td>
+					<td>Actions</td>
+				</tr>
+				{% for j in sd %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{j.sname}}</td>
+					<td>{{j.age}}</td>
+					<td>{{j.suname}}</td>
+					<td>{{j.semail}}</td>
+					<td><a href="{% url 'sv1' j.id %}" class="btn btn-outline-info btn-warning">View</a><a href="{% url 'sup' j.id %}" class="btn btn-outline btn-success">Update</a><a href="{% url 'sdelete1' j.id %}" class="btn btn-danger">Delete</a></td>
+				{% endfor %}
+			</tr>
+			</table>
+		</div>
+	</div>
+	</div>
+	
+</div>
+{% endblock %}

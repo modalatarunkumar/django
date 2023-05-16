@@ -1,0 +1,20 @@
+{% extends 'header.html' %}
+{% block title %}View Details{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card col-md-6 mx-auto shadow-lg">
+		<div class="card-body">
+			<h3 class="bg-warning text-light border rounded">Student Record:{{em.id}}</h3>
+			<div>
+				<h4>Student Name: {{em.sname}}</h4>
+				<h4>Student Age: {{em.age}}</h4>
+				<h4>UserName: {{em.suname}}</h4>
+				<h4>Student Email-id: {{em.semail}}</h4>
+			</div>
+			<a href="{% url 'op' %}" class="btn btn-outline-secondary border rounded btn-block">Back to Main</a>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
